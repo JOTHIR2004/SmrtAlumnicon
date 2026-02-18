@@ -33,7 +33,7 @@ function StudentHome() {
     const fetchBanners = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/admin-banners"
+          "https://smrtalumnicon.onrender.com/api/admin-banners"
         );
         setBanners(res.data);
       } catch (err) {
@@ -68,7 +68,7 @@ function StudentHome() {
   const fetchAlumniSuggestions = async (studentId) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/alumni/suggestions/${studentId}`
+        `https://smrtalumnicon.onrender.com/api/alumni/suggestions/${studentId}`
       );
       const data = await res.json();
       const normalized = Array.isArray(data)
@@ -185,7 +185,7 @@ function StudentHome() {
 
                     {event.imageUrl && (
                       <img
-                        src={`http://localhost:5000${event.imageUrl}`}
+                        src={`https://smrtalumnicon.onrender.com${event.imageUrl}`}
                         alt={event.title}
                         className="w-[503px] h-[503px] object-cover"
                       />
@@ -210,7 +210,7 @@ function StudentHome() {
               <div className="w-[250px] overflow-hidden">
                 {banners.length > 0 ? (
                   <img
-                    src={`http://localhost:5000${banners[currentIndex].imageUrl}`}
+                    src={`https://smrtalumnicon.onrender.com${banners[currentIndex].imageUrl}`}
                     alt="College Banner"
                     className="w-full h-auto object-contain rounded-xl transition-all duration-500"
                   />
@@ -241,7 +241,7 @@ function StudentHome() {
                         src={
                           alumni.imageUrl.startsWith("http")
                             ? alumni.imageUrl
-                            : `http://localhost:5000${alumni.imageUrl}`
+                            : `https://smrtalumnicon.onrender.com${alumni.imageUrl}`
                         }
                         alt={alumni.firstName}
                         className="w-full h-32 object-cover rounded-lg mb-2"
@@ -293,7 +293,7 @@ function StudentHome() {
                 src={
                   selectedAlumni.imageUrl.startsWith("http")
                     ? selectedAlumni.imageUrl
-                    : `http://localhost:5000${selectedAlumni.imageUrl}`
+                    : `https://smrtalumnicon.onrender.com${selectedAlumni.imageUrl}`
                 }
                 alt={selectedAlumni.firstName}
                 className="w-full h-56 object-cover rounded-lg mb-4"
