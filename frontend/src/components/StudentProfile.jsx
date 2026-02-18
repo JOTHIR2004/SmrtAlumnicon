@@ -26,7 +26,7 @@ function StudentProfile() {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/auth/upload-resume/${user._id}`,
+        `https://smrtalumnicon.onrender.com/api/auth/upload-resume/${user._id}`,
         {
           method: "POST",
           body: formData,
