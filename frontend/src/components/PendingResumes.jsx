@@ -10,7 +10,7 @@ function PendingResumes() {
   const fetchPendingResumes = async () => {
     try {
       const res = await fetch(
-        "http://localhost:5000/api/auth/pending-resumes"
+        "https://smrtalumnicon.onrender.com/api/auth/pending-resumes"
       );
       const data = await res.json();
 
@@ -38,7 +38,7 @@ function PendingResumes() {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/auth/admin/approve-resume/${studentId}`,
+        `https://smrtalumnicon.onrender.com/api/auth/admin/approve-resume/${studentId}`,
         { method: "PUT" }
       );
 
@@ -137,7 +137,7 @@ function PendingResumes() {
                   <td className="px-4 py-3 text-sm">
                     {student.resumeUrl ? (
                       <a
-                        href={`http://localhost:5000/${student.resumeUrl}`}
+                        href={`https://smrtalumnicon.onrender.com/${student.resumeUrl}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 font-medium hover:underline"
