@@ -11,7 +11,7 @@ function Login() {
   const handleLogin = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://smrtalumnicon.onrender.com/api/auth/login",
         { username, password }
       );
 
@@ -20,7 +20,7 @@ function Login() {
       const user = res.data.user;
       localStorage.setItem("user", JSON.stringify(user));
 
-      // ✅ Role-based redirect
+      //  Role-based redirect
       if (user.role === "student") {
         navigate("/student/home");
       } else if (user.role === "alumni") {
