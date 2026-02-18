@@ -11,7 +11,7 @@ const AddBanner = () => {
     formData.append("image", image);
 
     await axios.post(
-      "http://localhost:5000/api/admin-banners/add",
+      "https://smrtalumnicon.onrender.com/api/admin-banners/add",
       formData
     );
 
