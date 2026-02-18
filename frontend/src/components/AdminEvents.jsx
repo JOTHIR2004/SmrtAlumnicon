@@ -23,7 +23,7 @@ function AdminEvents() {
   const fetchEvents = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:5000/api/events");
+      const res = await axios.get("https://smrtalumnicon.onrender.com/api/events");
       setEvents(res.data);
       setLoading(false);
     } catch (err) {
@@ -38,7 +38,7 @@ function AdminEvents() {
     if (!window.confirm("Are you sure you want to delete this event?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/events/${id}`);
+      await axios.delete(`https://smrtalumnicon.onrender.com/api/events/${id}`);
       alert("Event deleted successfully");
 
       // refresh list
@@ -81,7 +81,7 @@ function AdminEvents() {
               {/* Image */}
               {event.imageUrl && (
                 <img
-                  src={`http://localhost:5000${event.imageUrl}`}
+                  src={`https://smrtalumnicon.onrender.com${event.imageUrl}`}
                   alt={event.title}
                   className="w-full h-44 object-cover"
                 />
