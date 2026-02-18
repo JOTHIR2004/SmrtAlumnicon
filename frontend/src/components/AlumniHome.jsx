@@ -29,7 +29,7 @@ const [currentIndex, setCurrentIndex] = useState(0);
     const fetchBanners = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/admin-banners"
+          "https://smrtalumnicon.onrender.com/api/admin-banners"
         );
         setBanners(res.data);
       } catch (err) {
@@ -50,7 +50,7 @@ const [currentIndex, setCurrentIndex] = useState(0);
 
   const fetchEvents = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/events");
+      const res = await axios.get("https://smrtalumnicon.onrender.com/api/events");
       setEvents(res.data);
     } catch (err) {
       console.error("Failed to fetch events", err);
@@ -158,7 +158,7 @@ const [currentIndex, setCurrentIndex] = useState(0);
 
                     {event.imageUrl && (
                       <img
-                        src={`http://localhost:5000${event.imageUrl}`}
+                        src={`https://smrtalumnicon.onrender.com${event.imageUrl}`}
                         alt={event.title}
                         className="w-[503px] h-[503px] object-cover"
                       />
