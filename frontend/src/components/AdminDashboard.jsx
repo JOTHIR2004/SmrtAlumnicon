@@ -27,7 +27,7 @@ function AdminDashboard() {
     const fetchBanners = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/admin-banners"
+          "https://smrtalumnicon.onrender.com/api/admin-banners"
         );
         setBanners(res.data);
       } catch (err) {
@@ -53,7 +53,7 @@ function AdminDashboard() {
 
   const fetchEvents = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/events");
+      const res = await fetch("https://smrtalumnicon.onrender.com/api/events");
       const data = await res.json();
       setEvents(data);
     } catch (err) {
@@ -65,7 +65,7 @@ function AdminDashboard() {
     if (!window.confirm("Are you sure you want to delete this event?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/events/${id}`);
+      await axios.delete(`https://smrtalumnicon.onrender.com/api/events/${id}`);
       alert("Event deleted successfully");
 
       // refresh list
