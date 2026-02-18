@@ -13,7 +13,7 @@ function AlumniSuggestions() {
     setStudent(storedUser);
 
     axios
-      .get(`http://localhost:5000/api/alumni/suggestions/${storedUser._id}`)
+      .get(`https://smrtalumnicon.onrender.com/api/alumni/suggestions/${storedUser._id}`)
       .then((res) => {
         console.log("API response:", res.data);
 
@@ -54,7 +54,7 @@ function AlumniSuggestions() {
                   src={
                     alumni.imageUrl.startsWith("http")
                       ? alumni.imageUrl
-                      : `http://localhost:5000${alumni.imageUrl}`
+                      : `https://smrtalumnicon.onrender.com${alumni.imageUrl}`
                   }
                   alt={alumni.firstName}
                   className="w-full h-44 object-cover rounded-lg mb-3"
@@ -103,7 +103,7 @@ function AlumniSuggestions() {
                 src={
                   selectedAlumni.imageUrl.startsWith("http")
                     ? selectedAlumni.imageUrl
-                    : `http://localhost:5000${selectedAlumni.imageUrl}`
+                    : `https://smrtalumnicon.onrender.com${selectedAlumni.imageUrl}`
                 }
                 alt={selectedAlumni.firstName}
                 className="w-full h-56 object-cover rounded-lg mb-4"
@@ -160,7 +160,7 @@ function AlumniSuggestions() {
                   href={
                     selectedAlumni.interviewUrl.startsWith("http")
                       ? selectedAlumni.interviewUrl
-                      : `http://localhost:5000${selectedAlumni.interviewUrl}`
+                      : `https://smrtalumnicon.onrender.com${selectedAlumni.interviewUrl}`
                   }
                   target="_blank"
                   rel="noopener noreferrer"
