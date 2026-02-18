@@ -46,7 +46,7 @@ function PostEvent() {
       formData.append("image", image);
 
       await axios.post(
-        "http://localhost:5000/api/events/add",
+        "https://smrtalumnicon.onrender.com/api/events/add",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" }
