@@ -26,7 +26,7 @@ function AlumniSignup() {
   const sendOtp = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/send-otp",
+        "https://smrtalumnicon.onrender.com/api/auth/send-otp",
         { email: formData.email }
       );
       alert(res.data.message);
@@ -40,7 +40,7 @@ function AlumniSignup() {
   const verifyOtp = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/verify-otp",
+        "https://smrtalumnicon.onrender.com/api/auth/verify-otp",
         { email: formData.email, otp }
       );
       alert(res.data.message);
@@ -66,7 +66,7 @@ function AlumniSignup() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://smrtalumnicon.onrender.com/api/auth/register",
         {
           ...formData,
           role: "alumni",
