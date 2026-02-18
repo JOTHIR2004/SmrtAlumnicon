@@ -28,7 +28,7 @@ function AlumniProfile() {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/auth/upload-resume/${user._id}`,
+        `https://smrtalumnicon.onrender.com/api/auth/upload-resume/${user._id}`,
         {
           method: "POST",
           body: formData,
@@ -106,7 +106,7 @@ function AlumniProfile() {
               </span>
               {user.resumeUrl && (
                 <a
-                  href={`http://localhost:5000/${user.resumeUrl}`}
+                  href={`https://smrtalumnicon.onrender.com/${user.resumeUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-blue-600 underline text-sm"
