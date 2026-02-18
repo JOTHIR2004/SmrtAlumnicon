@@ -22,7 +22,7 @@ function UserProfilesPage() {
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:5000/api/admin/users");
+      const res = await axios.get("https://smrtalumnicon.onrender.com/api/admin/users");
       setUsers(res.data);
       setLoading(false);
     } catch (err) {
@@ -36,7 +36,7 @@ function UserProfilesPage() {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/admin/users/${userId}`);
+      await axios.delete(`https://smrtalumnicon.onrender.com/api/admin/users/${userId}`);
       alert("User deleted successfully!");
       fetchUsers(); // refresh list
     } catch (err) {
@@ -87,7 +87,7 @@ function UserProfilesPage() {
               {user.resumeUrl && (
                 <p className="mb-2">
                   <a
-                    href={`http://localhost:5000${user.resumeUrl}`}
+                    href={`https://smrtalumnicon.onrender.com${user.resumeUrl}`}
                     target="_blank"
                     rel="noreferrer"
                     className="text-blue-600 hover:underline text-sm font-medium"
