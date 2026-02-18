@@ -45,7 +45,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const authRoutes = require("./routes/authRoutes");
-const alumniRoutes = require("./routes/Alumni");
+const alumniRoutes = require("./routes/alumni");
 const adminRoutes = require("./routes/admin");
 const eventRoutes = require("./routes/EventRoutes");
 
