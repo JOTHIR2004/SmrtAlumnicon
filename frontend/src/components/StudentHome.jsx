@@ -141,7 +141,7 @@ function StudentHome() {
       {/* ================= MAIN CONTENT ================= */}
       <div className="flex gap-6 mt-8">
         {/* ===== LEFT: ALUMNI EVENTS ===== */}
-        <div className="bg-[#DAFFDA]/50 rounded-xl w-2/3 p-6 h-[80vh]">
+        <div className="bg-[#DAFFDA]/50 rounded-xl w-full md:w-2/3 p-6 h-[80vh]">
           <h3 className="text-xl text-center font-k2d mb-4 text-green-950">
             Alumni Posted Events
           </h3>
@@ -198,7 +198,7 @@ function StudentHome() {
         </div>
 
         {/* ===== RIGHT: ALUMNI SUGGESTIONS ===== */}
-        <div className="w-1/3 gap-2 flex flex-col justify-end  rounded-2xl ">
+        <div className="w-full md:w-1/3 gap-2 flex mt-2 md:mt-0 flex-col justify-end  rounded-2xl ">
 
           <div className="h-2/3 rounded-2xl p-2 bg-green-200">
             <h2 className="text-xl font-k2d text-center mb-4 text-green-950">
