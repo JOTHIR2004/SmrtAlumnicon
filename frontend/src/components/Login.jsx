@@ -37,7 +37,7 @@ function Login() {
     <div className="min-h-screen w-full bg-gradient-to-r from-gray-400 to-gray-200 flex items-center justify-center relative">
       
       {/* MAIN CARD */}
-      <div className="w-[75%] max-w-5xl h-[420px] bg-[#3f4447] rounded-xl shadow-2xl flex md:flex-row flex-col overflow-hidden">
+      <div className="w-[75%] p-5 max-w-5xl h-[420px] bg-[#3f4447] rounded-xl shadow-2xl flex md:flex-row flex-col overflow-hidden">
 
         {/* LEFT */}
         <div className="flex-1 flex items-center justify-center">
