@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { GoHomeFill } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 
 export default function DigiAsst() {
+
+  const navigate = useNavigate();
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [company, setCompany] = useState("");
@@ -52,8 +56,9 @@ export default function DigiAsst() {
 
 
       {/* Header */}
-      <div className="w-full h-full p-4 text-center text-white font-semibold border-b border-gray-700">
-        DigiAsst – Interview Digital Assistant
+      <div className="w-full h-full p-4 text-center flex justify-around items-center text-white font-semibold border-b border-gray-700">
+        <button className="text-green-400 border-2 border-green-400 rounded-xl text-3xl" onClick={() => navigate("/student/home")}><GoHomeFill /></button>
+        <span>DigiAsst – Interview Digital Assistant</span>
       </div>
 
       {/* Messages */}
