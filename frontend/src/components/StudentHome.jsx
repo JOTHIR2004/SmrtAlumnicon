@@ -139,7 +139,7 @@ function StudentHome() {
       </div>
 
       {/* ================= MAIN CONTENT ================= */}
-      <div className="flex gap-6 mt-8">
+      <div className="md:flex gap-6 mt-8">
         {/* ===== LEFT: ALUMNI EVENTS ===== */}
         <div className="bg-[#DAFFDA]/50 rounded-xl w-full md:w-2/3 p-6 h-[80vh]">
           <h3 className="text-xl text-center font-k2d mb-4 text-green-950">
@@ -182,14 +182,15 @@ function StudentHome() {
                         </span>
                       </p>
                     </div>
-
+                    <div className="flex justify-center items-center overflow-hidden">
                     {event.imageUrl && (
                       <img
                         src={`https://smrtalumnicon.onrender.com${event.imageUrl}`}
                         alt={event.title}
-                        className="w-[503px] h-[503px] object-cover"
+                        className=" w-auto h-auto object-cover "
                       />
                     )}
+                    </div>
                   </div>
                 ))}
               </div>
