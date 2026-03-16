@@ -161,7 +161,7 @@ const [currentIndex, setCurrentIndex] = useState(0);
                       <img
                         src={`https://smrtalumnicon.onrender.com${event.imageUrl}`}
                         alt={event.title}
-                        className="w-[503px] h-[503px] object-cover"
+                        className="w-full h-full object-cover"
                       />
                     )}
                     </div>
