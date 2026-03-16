@@ -157,7 +157,7 @@ function AdminDashboard() {
 
                     {event.imageUrl && (
                       <img
-                        src={`http://localhost:5000${event.imageUrl}`}
+                        src={`https://smrtalumnicon.onrender.com${event.imageUrl}`}
                         alt={event.title}
                         className="w-full h-full object-cover"
                       />
@@ -182,7 +182,7 @@ function AdminDashboard() {
               <div className="w-[300px] overflow-hidden">
                 {banners.length > 0 ? (
                   <img
-                    src={`http://localhost:5000${banners[currentIndex].imageUrl}`}
+                    src={`https://smrtalumnicon.onrender.com${banners[currentIndex].imageUrl}`}
                     alt="College Banner"
                     className="w-full h-auto object-contain rounded-xl transition-all duration-500"
                   />
