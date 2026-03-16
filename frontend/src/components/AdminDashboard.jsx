@@ -110,9 +110,9 @@ function AdminDashboard() {
 
 
 
-      <div className="flex gap-6 mt-8">
+      <div className="md:flex gap-6 mt-8">
         {/* ===== FEED ===== */}
-        <div className="bg-[#DAFFDA]/50 rounded-xl w-2/3 p-6 h-[80vh]">
+        <div className="bg-[#DAFFDA]/50 rounded-xl md:w-2/3 p-6 h-[80vh]">
           <h3 className="text-xl text-center font-k2d mb-4 text-green-950">
             Alumni Posted Events
           </h3>
@@ -159,7 +159,7 @@ function AdminDashboard() {
                       <img
                         src={`http://localhost:5000${event.imageUrl}`}
                         alt={event.title}
-                        className="w-[503px] h-[503px] object-cover"
+                        className="w-full h-full object-cover"
                       />
                     )}
                   </div>
@@ -170,7 +170,7 @@ function AdminDashboard() {
         </div>
 
         {/* ===== SIDEBAR ===== */}
-        <div className="w-1/3 gap-2 flex flex-col justify-end  rounded-2xl ">
+        <div className="w-full md:w-1/3 gap-2 flex mt-2 md:mt-0 flex-col justify-end  rounded-2xl ">
 
           <div className="h-3/4 rounded-2xl p-2  bg-green-200">
             <h2 className="text-xl font-k2d text-center mb-4 text-green-950">
