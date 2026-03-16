@@ -184,7 +184,7 @@ const [currentIndex, setCurrentIndex] = useState(0);
               <div className="w-[300px] overflow-hidden">
                 {banners.length > 0 ? (
                   <img
-                    src={`http://localhost:5000${banners[currentIndex].imageUrl}`}
+                    src={`https://smrtalumnicon.onrender.com${banners[currentIndex].imageUrl}`}
                     alt="College Banner"
                     className="w-full h-auto object-contain rounded-xl transition-all duration-500"
                   />
