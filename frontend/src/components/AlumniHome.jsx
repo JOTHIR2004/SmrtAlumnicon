@@ -70,8 +70,8 @@ const [currentIndex, setCurrentIndex] = useState(0);
     <div className="min-h-screen bg-black text-gray-200 p-5 font-sans">
       {/* ===== TOP BAR ===== */}
       <div className="flex flex-col md:flex-row justify-between items-center bg-[#808080]/40 rounded-xl shadow-md p-4 md:p-6 gap-4">
-        <h2 className="text-5xl text-[#00DF81] font-BigShInTxt">CSBS</h2>
-        <h2 className="text-5xl text-[#00DF81] font-PNBG">Alumni View</h2>
+        <h2 className="text-4xl text-[#00DF81] font-BigShInTxt sm:text-5xl">CSBS</h2>
+        <h2 className="text-2xl text-[#00DF81] font-PNBG sm:text-5xl">Alumni View</h2>
         {/* Profile */}
         <div className="relative">
           <div
@@ -112,9 +112,9 @@ const [currentIndex, setCurrentIndex] = useState(0);
       </div>
 
       {/* ===== MAIN LAYOUT ===== */}
-      <div className="flex gap-6 mt-8">
+      <div className="md:flex gap-6 mt-8">
         {/* ===== FEED ===== */}
-        <div className="bg-[#DAFFDA]/50 rounded-xl w-2/3 p-6 h-[80vh]">
+        <div className="bg-[#DAFFDA]/50 rounded-xl md:w-2/3 p-6 h-[80vh]">
           <h3 className="text-xl text-center font-k2d mb-4 text-green-950">
             Alumni Posted Events
           </h3>
@@ -156,6 +156,7 @@ const [currentIndex, setCurrentIndex] = useState(0);
                       </p>
                     </div>
 
+                    <div className="flex justify-center items-center overflow-hidden">
                     {event.imageUrl && (
                       <img
                         src={`https://smrtalumnicon.onrender.com${event.imageUrl}`}
@@ -163,6 +164,7 @@ const [currentIndex, setCurrentIndex] = useState(0);
                         className="w-[503px] h-[503px] object-cover"
                       />
                     )}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -171,7 +173,7 @@ const [currentIndex, setCurrentIndex] = useState(0);
         </div>
 
         {/* ===== SIDEBAR ===== */}
-        <div className="w-1/3 gap-2 flex flex-col justify-end  rounded-2xl ">
+        <div className="w-full md:w-1/3 gap-2 flex mt-2 md:mt-0 flex-col justify-end  rounded-2xl ">
         <div className="h-3/4 rounded-2xl p-2 bg-green-200">
             <h2 className="text-xl font-k2d text-center mb-4 text-green-950">
               College Banner
