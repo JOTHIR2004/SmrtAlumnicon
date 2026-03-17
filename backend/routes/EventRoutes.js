@@ -3,15 +3,16 @@ const router = express.Router();
 const Event = require("../models/Events");
 const multer = require("multer");
 const path = require("path");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("../config/cloudinary");
 
-// Configure multer storage
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/"); // folder to save images
+// Cloudinary storage
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "events", // folder name in cloudinary
+    allowed_formats: ["jpg", "png", "jpeg"],
   },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)); // unique filename
-  }
 });
 
 const upload = multer({ storage });
@@ -21,8 +22,7 @@ router.post("/add", upload.single("image"), async (req, res) => {
   try {
     const { title, description, date, postedBy } = req.body;
 
-    // If image uploaded, store path
-    const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
+    const imageUrl = req.file ? req.file.path : null;
 
     const event = new Event({
       title,
@@ -33,7 +33,12 @@ router.post("/add", upload.single("image"), async (req, res) => {
     });
 
     await event.save();
-    res.json({ message: "Event posted successfully", event });
+
+    res.json({
+      message: "Event posted successfully",
+      event
+    });
+
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Failed to post event" });
