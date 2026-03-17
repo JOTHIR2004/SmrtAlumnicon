@@ -185,7 +185,7 @@ function StudentHome() {
                     <div className="flex justify-center items-center overflow-hidden">
                     {event.imageUrl && (
                       <img
-                        src={`https://smrtalumnicon.onrender.com${event.imageUrl}`}
+                        src={event.imageUrl}
                         alt={event.title}
                         className=" w-auto h-auto object-cover "
                       />
