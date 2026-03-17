@@ -157,7 +157,7 @@ function AdminDashboard() {
 
                     {event.imageUrl && (
                       <img
-                        src={`https://smrtalumnicon.onrender.com${event.imageUrl}`}
+                        src={event.imageUrl}
                         alt={event.title}
                         className="w-full h-full object-cover"
                       />
