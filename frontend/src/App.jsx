@@ -18,6 +18,7 @@ import UserProfilesPage from "./components/UserProfilesPage";
 import AdminEvents from "./components/AdminEvents";
 import DigiAsst from "./components/DigiAsst";
 import AddBanner from "./components/AddBanner";
+import ForgotPassword from "./components/Forgotpassword";
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
             element={<AlumniSugeesions />}
           />
           <Route path="/digital-assistance" element={<DigiAsst/>}/>
+          <Route path ="/forgot-password" element = {<ForgotPassword/>}/>
         </Routes>
       </div>
     </Router>
