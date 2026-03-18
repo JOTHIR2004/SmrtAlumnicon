@@ -488,7 +488,53 @@ router.post("/login", async (req, res) => {
   });
 });
 
+//forgot-password
 
+router.post("/forgot-password", async (req, res) => {
+  try {
+    console.log("🔥 Forgot Password API called");
+
+    const { email, newPassword } = req.body;
+
+    // ✅ Validate input
+    if (!email || !newPassword) {
+      return res.status(400).json({ message: "Email and password are required" });
+    }
+
+    // ✅ Find user
+    const user = await User.findOne({ email: email.trim() });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // ✅ Prevent same password reuse (optional but good)
+    const isSame = await bcrypt.compare(newPassword, user.password);
+    if (isSame) {
+      return res.status(400).json({ message: "New password cannot be same as old password" });
+    }
+
+    // ✅ Password validation
+    if (newPassword.length < 6) {
+      return res.status(400).json({ message: "Password must be at least 6 characters" });
+    }
+
+    // ✅ Hash password
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    // ✅ Update password
+    user.password = hashedPassword;
+    await user.save();
+
+    console.log("✅ Password updated for:", email);
+
+    return res.status(200).json({ message: "Password reset successful" });
+
+  } catch (err) {
+    console.error("❌ ERROR:", err.message);
+    return res.status(500).json({ message: "Server error" });
+  }
+});
 
 /* ================= GET USER PROFILE ================= */
 // 1️⃣ Pending resumes route MUST come first
