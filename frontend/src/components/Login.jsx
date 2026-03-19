@@ -64,9 +64,12 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <span className="text-[11px] mt-2 cursor-pointer">
-            forget password
-          </span>
+           <span
+              onClick={() => navigate("/forgot-password")}
+              className="text-[11px] mt-2 cursor-pointer text-blue-600 hover:underline">
+              Forgot password?
+            </span>
+
 
           <button
             onClick={handleLogin}
