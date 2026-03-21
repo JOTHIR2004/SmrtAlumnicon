@@ -127,25 +127,23 @@ function AdminDashboard() {
                     key={index}
                     className="flex flex-col md:flex-row bg-white text-gray-900 rounded-xl shadow-lg overflow-hidden"
                   >
-                    <div className="flex-1 p-6">
-                      <h4 className="text-2xl font-bold mb-1">
+                    <div className="flex-1 p-6 md:w-1/2 ">
+
+                      <p className="mt-4 mb-4 text-sm text-black p-3 border-2 bg-blue-200 border-blue-300 rounded-2xl">
+                        Posted by:{" "}
+                        <span className="font-medium text-black ">
+                          {event.postedBy?.firstName} {event.postedBy?.lastName}
+                        </span>
+                      </p>
+
+                      <h4 className="text-4xl font-bold mb-1 text-red-400">
                         {event.title}
                       </h4>
 
-                      <p className="text-sm text-gray-500 mb-2">
+                      <p className="text-sm mt-4 text-gray-500 mb-2">
                         📅 {event.date}
                       </p>
-
-                      <p className="mt-4 text-gray-700">
-                        {event.description}
-                      </p>
-
-                      <p className="mt-4 text-sm text-gray-500">
-                        Posted by:{" "}
-                        <span className="font-medium text-black">
-                          {event._id}
-                        </span>
-                      </p>
+                      
                       <button
                         onClick={() => deleteEvent(event._id)}
                         className="w-full py-2 rounded-lg bg-red-500 text-white font-semibold
@@ -153,15 +151,37 @@ function AdminDashboard() {
                       >
                         🗑 Delete Event
                       </button>
-                    </div>
 
+                      
+                      {/* <span className="text-sm text-gray-500">
+                        {event.date
+                          ? new Date(event.date).toLocaleDateString("en-US", {
+                            day: "numeric",
+                            month: "short",
+                            year: "numeric",
+                          })
+                          : "No date"}
+                      </span> */}
+
+                      
+
+                      <p className="mt-4 text-neutral-950 h-auto rounded-2xl bg-blue-200 border-2 p-3 border-blue-400">
+                        Description:{" "}
+                        <span className="font-medium text-black p-3 ">
+                          {event.description}
+                        </span>
+                        
+                      </p>
+                    </div>
+                    <div className="flex md:w-1/2 justify-center items-center overflow-hidden">
                     {event.imageUrl && (
                       <img
                         src={event.imageUrl}
                         alt={event.title}
-                        className="w-full h-full object-cover"
+                        className=" w-auto h-auto object-cover "
                       />
                     )}
+                    </div>
                   </div>
                 ))}
               </div>
