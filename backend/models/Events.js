@@ -5,8 +5,7 @@ const eventSchema = new mongoose.Schema({
   description: { type: String, required: true },
   date: { type: String, required: true }, // Keep as string or change to Date if you prefer
   postedBy: {
-    // type: mongoose.Schema.Types.ObjectId?mongoose.Schema.Types.ObjectId :String,
-    type : String,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "signup",
     required: true
   },
