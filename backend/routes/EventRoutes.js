@@ -48,8 +48,19 @@ router.post("/add", upload.single("image"), async (req, res) => {
 // ------------------- GET ALL EVENTS -------------------
 router.get("/", async (req, res) => {
   try {
-    const events = await Event.find().sort({ createdAt: -1 });
-    res.json(events);
+    const events = await Event.find()
+      .populate("postedBy", "firstName lastName")
+      .sort({ createdAt: -1 });
+
+    const formattedEvents = events.map(event => ({
+      ...event._doc,
+      postedByName: event.postedBy
+        ? `${event.postedBy.firstName} ${event.postedBy.lastName}`
+        : "Unknown"
+    }));
+
+    res.json(formattedEvents);
+
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Failed to fetch events" });
