@@ -455,7 +455,7 @@ router.post("/register", async (req, res) => {
 });
 
 /* ================= LOGIN ================= */
-router.post("/login", async (req, res) => {
+/*router.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
   // Hard-coded admin
@@ -486,52 +486,99 @@ router.post("/login", async (req, res) => {
       resumeStatus: user.resumeStatus || "not_uploaded"
     }
   });
+});*/
+//login updated with admin
+router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    // 🔹 Find user by email OR firstName (your choice)
+    const user = await User.findOne({
+      $or: [
+        { email: username },
+        { firstName: username }
+      ]
+    });
+
+    if (!user) {
+      return res.status(400).json({ message: "User not found" });
+    }
+
+    // 🔹 Compare password
+    const match = await bcrypt.compare(password, user.password);
+
+    if (!match) {
+      return res.status(400).json({ message: "Invalid password" });
+    }
+
+    // 🔹 Success response
+    res.status(200).json({
+      message: user.role === "admin" 
+        ? "Admin login successful" 
+        : "Login successful",
+        
+      user: {
+        _id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        role: user.role,
+        skills: user.skills || "",
+        areaOfInterest: user.areaOfInterest || "",
+        resumeStatus: user.resumeStatus || "not_uploaded"
+      }
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
 //forgot-password
 
 router.post("/forgot-password", async (req, res) => {
   try {
-    console.log("🔥 Forgot Password API called");
+    console.log(" Forgot Password API called");
 
     const { email, newPassword } = req.body;
 
-    // ✅ Validate input
+    // Validate input
     if (!email || !newPassword) {
       return res.status(400).json({ message: "Email and password are required" });
     }
 
-    // ✅ Find user
+    // Find user
     const user = await User.findOne({ email: email.trim() });
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    // ✅ Prevent same password reuse (optional but good)
+    // Prevent same password reuse (optional but good)
     const isSame = await bcrypt.compare(newPassword, user.password);
     if (isSame) {
       return res.status(400).json({ message: "New password cannot be same as old password" });
     }
 
-    // ✅ Password validation
+    //  Password validation
     if (newPassword.length < 6) {
       return res.status(400).json({ message: "Password must be at least 6 characters" });
     }
 
-    // ✅ Hash password
+    //  Hash password
     const hashedPassword = await bcrypt.hash(newPassword, 10);
 
-    // ✅ Update password
+    //  Update password
     user.password = hashedPassword;
     await user.save();
 
-    console.log("✅ Password updated for:", email);
+    console.log(" Password updated for:", email);
 
     return res.status(200).json({ message: "Password reset successful" });
 
   } catch (err) {
-    console.error("❌ ERROR:", err.message);
+    console.error(" ERROR:", err.message);
     return res.status(500).json({ message: "Server error" });
   }
 });
