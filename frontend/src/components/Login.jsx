@@ -21,7 +21,10 @@ function Login() {
       localStorage.setItem("user", JSON.stringify(user));
 
       //  Role-based redirect
-      if (user.role === "student") {
+      f(user.role == "admin"){
+        navigate("/admin/dashboard");
+      }
+      else if (user.role === "student") {
         navigate("/student/home");
       } else if (user.role === "alumni") {
         navigate("/alumni/home");
