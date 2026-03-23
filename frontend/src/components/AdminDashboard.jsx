@@ -202,7 +202,7 @@ function AdminDashboard() {
               <div className="w-[300px] overflow-hidden">
                 {banners.length > 0 ? (
                   <img
-                    src={`https://smrtalumnicon.onrender.com${banners[currentIndex].imageUrl}`}
+                    src={banners[currentIndex].imageUrl}
                     alt="College Banner"
                     className="w-full h-auto object-contain rounded-xl transition-all duration-500"
                   />
