@@ -3,15 +3,16 @@ const router = express.Router();
 const AdminBanner = require("../models/adminBanner");
 const multer = require("multer");
 const path = require("path");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("../config/cloudinary");
 
-// ------------------- MULTER CONFIG -------------------
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/"); // folder to save banner images
+// Cloudinary storage
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "events", // folder name in cloudinary
+    allowed_formats: ["jpg", "png", "jpeg"],
   },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)); // unique filename
-  }
 });
 
 const upload = multer({ storage });
@@ -19,8 +20,8 @@ const upload = multer({ storage });
 // ------------------- POST BANNER (ADMIN) -------------------
 router.post("/add", upload.single("image"), async (req, res) => {
   try {
-    // If image uploaded, store path
-    const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
+    // Get Cloudinary image URL
+    const imageUrl = req.file ? req.file.path : null;
 
     if (!imageUrl) {
       return res.status(400).json({ message: "Banner image is required" });
@@ -36,12 +37,12 @@ router.post("/add", upload.single("image"), async (req, res) => {
       message: "Banner uploaded successfully",
       banner
     });
+
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Failed to upload banner" });
   }
 });
-
 // ------------------- GET ALL BANNERS -------------------
 router.get("/", async (req, res) => {
   try {
