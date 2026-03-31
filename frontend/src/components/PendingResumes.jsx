@@ -67,7 +67,7 @@ function PendingResumes() {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/auth/admin/reject-resume/${studentId}`,
+        `https://smrtalumnicon.onrender.com/api/auth/admin/reject-resume/${studentId}`,
         { method: "PUT" }
       );
 
