@@ -107,7 +107,7 @@ function PendingResumes() {
                   Email
                 </th>
                 <th className="text-left px-4 py-3 text-sm font-semibold text-gray-700 border-b">
-                  Resume
+                  Int-Exp
                 </th>
                 <th className="text-left px-4 py-3 text-sm font-semibold text-gray-700 border-b">
                   Status
@@ -137,12 +137,12 @@ function PendingResumes() {
                   <td className="px-4 py-3 text-sm">
                     {student.resumeUrl ? (
                       <a
-                        href={`https://smrtalumnicon.onrender.com/${student.resumeUrl}`}
+                        href={student.resumeUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 font-medium hover:underline"
                       >
-                        View Resume
+                        View Int-Exp
                       </a>
                     ) : (
                       "No resume"
