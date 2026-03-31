@@ -131,10 +131,10 @@ function AlumniSuggestions() {
             </a>
 
             <div className="space-y-2 text-sm">
-              <p>
+              {/* <p>
                 <strong>Phone:</strong>{" "}
                 {selectedAlumni.phone || "N/A"}
-              </p>
+              </p> */}
               <p>
                 <strong>Skills:</strong>{" "}
                 {selectedAlumni.skills || "N/A"}
@@ -143,14 +143,14 @@ function AlumniSuggestions() {
                 <strong>Area of Interest:</strong>{" "}
                 {selectedAlumni.areaOfInterest || "N/A"}
               </p>
-              <p>
+              {/* <p>
                 <strong>Batch:</strong>{" "}
                 {selectedAlumni.batch || "N/A"}
               </p>
               <p>
                 <strong>About:</strong>{" "}
                 {selectedAlumni.about || "N/A"}
-              </p>
+              </p> */}
             </div>
 
             {selectedAlumni.interviewUrl && (
