@@ -92,13 +92,13 @@ function Login() {
         </div>
       </div>
 
-      {/* ADMIN BUTTON */}
+      /* {/* ADMIN BUTTON */}
       <button
         onClick={() => navigate("/admin")}
         className="absolute bottom-5 right-5 bg-sky-400 hover:bg-sky-500 transition px-5 py-2 rounded-full text-sm font-semibold"
       >
         ADMIN
-      </button>
+      </button> */
     </div>
   );
 }
