@@ -220,7 +220,7 @@ function StudentHome() {
 
             {/* Banner Display */}
             <div className="flex justify-center items-center ">
-              <div className="w-auto max-w-4xl h-auto overflow-hidden">
+              <div className="w-auto  h-auto overflow-hidden">
                 {banners.length > 0 ? (
                   <img
                     src={banners[currentIndex].imageUrl}
