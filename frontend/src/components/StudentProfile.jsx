@@ -90,7 +90,8 @@ function StudentProfile() {
               <span className="inline-block bg-yellow-200 text-yellow-800 px-3 py-1 rounded-full text-sm">Pending Approval</span>
               {user.resumeUrl && (
                 <a
-                  href={`http://localhost:5000/${user.resumeUrl}`}
+                  //href={`http://localhost:5000/${user.resumeUrl}`}
+                    href={`https://smrtalumnicon.onrender.com/${user.resumeUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block mt-2 text-blue-600 hover:underline"
@@ -106,7 +107,8 @@ function StudentProfile() {
               <span className="inline-block bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm">Approved</span>
               {user.resumeUrl && (
                 <a
-                  href={`http://localhost:5000/${user.resumeUrl}`}
+                  //href={`http://localhost:5000/${user.resumeUrl}`}
+                    href={`https://smrtalumnicon.onrender.com/${user.resumeUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block mt-2 text-blue-600 hover:underline"
