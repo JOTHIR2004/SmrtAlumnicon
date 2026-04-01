@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
+import { GoHomeFill } from "react-icons/go";
 function PendingResumes() {
   const [pendingStudents, setPendingStudents] = useState([]);
 
@@ -87,9 +88,13 @@ function PendingResumes() {
 
   return (
     <div className="h-screen  bg-black p-6 shadow-lg font-sans">
-      <h2 className="text-2xl flex justify-center font-semibold text-green-400 border-b pb-3 mb-6">
+      {/* <h2 className="text-2xl flex justify-center font-semibold text-green-400 border-b pb-3 mb-6">
         Pending Interview Experiences
-      </h2>
+      </h2> */}
+      <div className="w-full h-full p-4 text-center flex justify-evenly items-center text-white font-semibold ">
+        <button className="text-green-400 border-2 border-green-400 rounded-xl text-3xl" onClick={() => navigate("/admin/dashboard")}><GoHomeFill /></button>
+        <span className="text-green-300 text-2xl">Pending Interview Experiences</span>
+      </div>
 
       {pendingStudents.length === 0 ? (
         <p className="text-center text-gray-500 mt-10">
