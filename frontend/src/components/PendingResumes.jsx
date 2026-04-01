@@ -138,7 +138,7 @@ function PendingResumes() {
                     {student.resumeUrl ? (
                       <a
                         //href={student.resumeUrl}
-                        href={`https://smrtalumnicon.onrender.com/${student.resumeUrl}`}
+                        href={`https://smrtalumnicon.onrender.com${student.resumeUrl}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 font-medium hover:underline"
