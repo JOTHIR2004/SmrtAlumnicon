@@ -217,8 +217,8 @@ function AdminDashboard() {
             </h2>
 
             {/* Banner Display */}
-            <div className="flex justify-center">
-              <div className="w-[300px] overflow-hidden">
+            <div className="flex justify-center items-center">
+              <div className="w-full max-w-4xl overflow-hidden">
                 {banners.length > 0 ? (
                   <img
                     src={banners[currentIndex].imageUrl}
