@@ -346,7 +346,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /* ================= RESUME UPLOAD ================= */
-router.post("/upload-resume/:id", upload.single("resume"), async (req, res) => {
+/*router.post("/upload-resume/:id", upload.single("resume"), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ message: "No file uploaded" });
 
@@ -365,6 +365,38 @@ router.post("/upload-resume/:id", upload.single("resume"), async (req, res) => {
       message: "Resume uploaded successfully",
       student,
     });
+  } catch (err) {
+    console.error("RESUME UPLOAD ERROR:", err);
+    res.status(500).json({ message: "Resume upload failed" });
+  }
+});*/
+router.post("/upload-resume/:id", upload.single("resume"), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: "No file uploaded" });
+    }
+
+    //  FIXED: Store correct URL format (browser-friendly)
+    const fileUrl = `/uploads/resumes/${req.file.filename}`;
+
+    const student = await User.findByIdAndUpdate(
+      req.params.id,
+      {
+        resumeUrl: fileUrl,   
+        resumeStatus: "pending",
+      },
+      { new: true }
+    );
+
+    if (!student) {
+      return res.status(404).json({ message: "Student not found" });
+    }
+
+    res.json({
+      message: "Resume uploaded successfully",
+      student,
+    });
+
   } catch (err) {
     console.error("RESUME UPLOAD ERROR:", err);
     res.status(500).json({ message: "Resume upload failed" });
