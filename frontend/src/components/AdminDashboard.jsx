@@ -7,7 +7,7 @@ function AdminDashboard() {
   const [events, setEvents] = useState([]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const [showProfile, setShowProfile] = useState(false);
   const [banners, setBanners] = useState([]);
 
   useEffect(() => {
@@ -100,11 +100,30 @@ function AdminDashboard() {
 
         <div className="relative">
           <div
-            // onClick={() => setShowProfile(!showProfile)}
+            onClick={() => setShowProfile(!showProfile)}
             className="w-11 h-11 rounded-xl bg-[#00DF81] flex items-center justify-center cursor-pointer text-2xl font-bold"
           >
-            J
+            A
           </div>
+          {showProfile && (
+            <div
+              className="absolute right-0 top-12 w-40
+                         bg-slate-950 border border-slate-800
+                         rounded-lg p-3 shadow-2xl z-10"
+            >
+              <p className="text-sm font-semibold mb-2">
+                A
+              </p>
+
+              <button
+                onClick={handleLogout}
+                className="w-full bg-red-600 hover:bg-red-700
+                           text-sm py-1.5 rounded-md transition"
+              >
+                Logout
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
