@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GoHomeFill } from "react-icons/go";
 function PendingResumes() {
+  const navigate = useNavigate();
   const [pendingStudents, setPendingStudents] = useState([]);
 
   // Logged-in admin
