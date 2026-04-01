@@ -112,7 +112,7 @@ function AdminDashboard() {
                          rounded-lg p-3 shadow-2xl z-10"
             >
               <p className="text-sm font-semibold mb-2">
-                A
+                ADMIN
               </p>
 
               <button
