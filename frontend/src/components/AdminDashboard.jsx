@@ -211,7 +211,7 @@ function AdminDashboard() {
         {/* ===== SIDEBAR ===== */}
         <div className="w-full md:w-1/3 gap-2 flex mt-2 md:mt-0 flex-col justify-end  rounded-2xl ">
 
-          <div className="h-2/3 rounded-2xl p-2 bg-green-200 flex flex-col">
+          <div className="h-3/4 rounded-2xl p-2 bg-green-200 flex flex-col">
   <h2 className="text-xl font-k2d text-center mb-4 text-green-950">
     College Banner
   </h2>
