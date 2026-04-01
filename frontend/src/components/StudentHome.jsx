@@ -219,7 +219,7 @@ function StudentHome() {
             </h2>
 
             {/* Banner Display */}
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center ">
               <div className="w-auto max-w-4xl overflow-hidden">
                 {banners.length > 0 ? (
                   <img
