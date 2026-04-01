@@ -137,7 +137,8 @@ function PendingResumes() {
                   <td className="px-4 py-3 text-sm">
                     {student.resumeUrl ? (
                       <a
-                        href={student.resumeUrl}
+                        //href={student.resumeUrl}
+                        href={`https://smrtalumnicon.onrender.com/${student.resumeUrl}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 font-medium hover:underline"
@@ -186,13 +187,13 @@ function PendingResumes() {
 
                     {student.resumeStatus === "approved" && (
                       <span className="text-green-600 font-semibold">
-                        ✔ Approved
+                         Approved
                       </span>
                     )}
 
                     {student.resumeStatus === "rejected" && (
                       <span className="text-red-600 font-semibold">
-                        ✖ Rejected
+                         Rejected
                       </span>
                     )}
                   </td>
