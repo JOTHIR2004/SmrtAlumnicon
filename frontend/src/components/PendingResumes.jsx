@@ -91,7 +91,7 @@ function PendingResumes() {
       {/* <h2 className="text-2xl flex justify-center font-semibold text-green-400 border-b pb-3 mb-6">
         Pending Interview Experiences
       </h2> */}
-      <div className="text-2xl flex justify-center font-semibold text-green-400 border-b pb-3 mb-6 ">
+      <div className="text-2xl flex justify-evenly font-semibold text-green-400 border-b pb-3 mb-6 ">
         <button className="text-green-400 border-2 border-green-400 rounded-xl text-3xl" onClick={() => navigate("/admin/dashboard")}><GoHomeFill /></button>
         <span className="text-green-300 text-2xl">Pending Interview Experiences</span>
       </div>
