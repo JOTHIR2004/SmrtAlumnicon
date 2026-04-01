@@ -91,7 +91,7 @@ function StudentProfile() {
               {user.resumeUrl && (
                 <a
                   //href={`http://localhost:5000/${user.resumeUrl}`}
-                    href={`https://smrtalumnicon.onrender.com/${user.resumeUrl}`}
+                    href={`https://smrtalumnicon.onrender.com${user.resumeUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block mt-2 text-blue-600 hover:underline"
