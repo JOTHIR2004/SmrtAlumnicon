@@ -224,7 +224,7 @@ function StudentHome() {
       <img
         src={banners[currentIndex].imageUrl}
         alt="College Banner"
-        className="max-h-full max-w-full object-contain rounded-xl transition-all duration-500"
+        className="h-full w-full object-contain rounded-xl transition-all duration-500"
       />
     ) : (
       <p className="text-green-900">No banner available</p>
