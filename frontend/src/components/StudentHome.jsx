@@ -213,26 +213,24 @@ function StudentHome() {
         {/* ===== RIGHT: ALUMNI SUGGESTIONS ===== */}
         <div className="w-full md:w-1/3 gap-2 flex mt-2 md:mt-0 flex-col justify-end  rounded-2xl ">
 
-          <div className="h-2/3 rounded-2xl p-2 bg-green-200">
-            <h2 className="text-xl font-k2d text-center mb-4 text-green-950">
-              College Banner
-            </h2>
+          <div className="h-2/3 rounded-2xl p-2 bg-green-200 flex flex-col">
+  <h2 className="text-xl font-k2d text-center mb-4 text-green-950">
+    College Banner
+  </h2>
 
-            {/* Banner Display */}
-            <div className="flex justify-center items-center ">
-              <div className="w-auto  h-auto overflow-hidden">
-                {banners.length > 0 ? (
-                  <img
-                    src={banners[currentIndex].imageUrl}
-                    alt="College Banner"
-                    className="w-full h-auto object-contain rounded-xl transition-all duration-500"
-                  />
-                ) : (
-                  <p className="text-green-900">No banner available</p>
-                )}
-              </div>
-            </div>
-          </div>
+  {/* Banner Display */}
+  <div className="flex-1 flex justify-center items-center overflow-hidden">
+    {banners.length > 0 ? (
+      <img
+        src={banners[currentIndex].imageUrl}
+        alt="College Banner"
+        className="max-h-full max-w-full object-contain rounded-xl transition-all duration-500"
+      />
+    ) : (
+      <p className="text-green-900">No banner available</p>
+    )}
+  </div>
+</div>
           <div className="h-1/3 bg-[#DAFFDA] border-1 border-gray-950 p-2  rounded-xl shadow-md overflow-y-auto">
             <h2 className="text-xl font-k2d  text-center mb-4 text-green-950">
               Suggested Alumni's
