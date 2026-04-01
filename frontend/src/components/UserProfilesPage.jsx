@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { GoHomeFill } from "react-icons/go";
 import axios from "axios";
 
 function UserProfilesPage() {
@@ -49,9 +50,14 @@ function UserProfilesPage() {
 
   return (
     <div className="min-h-screen bg-black p-6">
-      <h1 className="text-3xl text-center font-semibold text-green-400 mb-8">
+      {/* <h1 className="text-3xl text-center font-semibold text-green-400 mb-8">
         All User Profiles
-      </h1>
+      </h1> */}
+
+      <div className="w-full h-full p-4 text-center flex justify-evenly items-center text-white font-semibold ">
+        <button className="text-green-400 border-2 border-green-400 rounded-xl text-3xl" onClick={() => navigate("/admin/dashboard")}><GoHomeFill /></button>
+        <span className="text-green-300 text-2xl">All User Profile</span>
+      </div>
 
       {users.length === 0 ? (
         <p className="text-center text-gray-600">No users found.</p>
