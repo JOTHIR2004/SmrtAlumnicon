@@ -331,6 +331,7 @@ const User = require("../models/User");
 const sendEmail = require("../utils/sendEmail");
 const mongoose = require("mongoose");
 const fs = require("fs");
+const upload = require("../config/multerCloudinary");
 
 const router = express.Router();
 
@@ -343,17 +344,16 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + path.extname(file.originalname));
   },
 });
-const upload = multer({ storage });
 
-/* ================= RESUME UPLOAD ================= */
-/*router.post("/upload-resume/:id", upload.single("resume"), async (req, res) => {
+
+router.post("/upload-resume/:id", upload.single("resume"), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ message: "No file uploaded" });
 
     const student = await User.findByIdAndUpdate(
       req.params.id,
       {
-        resumeUrl: req.file.path,
+        resumeUrl: req.file.path, // ✅ Cloudinary URL
         resumeStatus: "pending",
       },
       { new: true }
@@ -365,38 +365,6 @@ const upload = multer({ storage });
       message: "Resume uploaded successfully",
       student,
     });
-  } catch (err) {
-    console.error("RESUME UPLOAD ERROR:", err);
-    res.status(500).json({ message: "Resume upload failed" });
-  }
-});*/
-router.post("/upload-resume/:id", upload.single("resume"), async (req, res) => {
-  try {
-    if (!req.file) {
-      return res.status(400).json({ message: "No file uploaded" });
-    }
-
-    //  FIXED: Store correct URL format (browser-friendly)
-    const fileUrl = `/uploads/resumes/${req.file.filename}`;
-
-    const student = await User.findByIdAndUpdate(
-      req.params.id,
-      {
-        resumeUrl: fileUrl,   
-        resumeStatus: "pending",
-      },
-      { new: true }
-    );
-
-    if (!student) {
-      return res.status(404).json({ message: "Student not found" });
-    }
-
-    res.json({
-      message: "Resume uploaded successfully",
-      student,
-    });
-
   } catch (err) {
     console.error("RESUME UPLOAD ERROR:", err);
     res.status(500).json({ message: "Resume upload failed" });
