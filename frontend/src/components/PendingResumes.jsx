@@ -143,8 +143,8 @@ function PendingResumes() {
                   <td className="px-4 py-3 text-sm">
                     {student.resumeUrl ? (
                       <a
-                        //href={student.resumeUrl}
-                        href={`https://smrtalumnicon.onrender.com${student.resumeUrl}`}
+                        
+                        href={student.resumeUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 font-medium hover:underline"
