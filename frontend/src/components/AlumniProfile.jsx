@@ -106,7 +106,7 @@ function AlumniProfile() {
               </span>
               {user.resumeUrl && (
                 <a
-                  href={`https://smrtalumnicon.onrender.com/${user.resumeUrl}`}
+                  href={user.resumeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-blue-600 underline text-sm"
@@ -125,7 +125,7 @@ function AlumniProfile() {
               </span>
               {user.resumeUrl && (
                 <a
-                  href={`http://localhost:5000/${user.resumeUrl}`}
+                  href={user.resumeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-blue-600 underline text-sm"
