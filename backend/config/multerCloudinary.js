@@ -6,7 +6,7 @@ const storage = new CloudinaryStorage({
   cloudinary,
   params: {
     folder: "resumes",
-    resource_type: "raw",
+    resource_type: "pdf",
     type: "upload",        // ✅ VERY IMPORTANT
     access_mode: "public",  // ✅ VERY IMPORTANT for PDFs
   },
