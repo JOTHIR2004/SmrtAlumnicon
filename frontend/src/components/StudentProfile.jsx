@@ -40,13 +40,13 @@ function StudentProfile() {
         setResumeStatus(data.student.resumeStatus);
         localStorage.setItem("user", JSON.stringify(data.student));
 
-        alert("Resume uploaded successfully. Status: Pending Approval");
+        alert("Int-Exp uploaded successfully. Status: Pending Approval");
       } else {
         alert(data.message || "Resume upload failed");
       }
     } catch (err) {
       console.error(err);
-      alert("Something went wrong during resume upload");
+      alert("Something went wrong during Int-Exp upload");
     }
   };
 
@@ -68,12 +68,12 @@ function StudentProfile() {
 
         {/* Resume Section */}
         <div className="mt-6 p-4 border-2 border-dashed rounded-lg hover:shadow-md hover:bg-gray-50 transition">
-          <strong className="block mb-2 text-gray-700">Resume:</strong>
+          <strong className="block mb-2 text-gray-700">Int-Exp:</strong>
 
           {resumeStatus === "not_uploaded" && (
             <>
               <label className="block mb-2 cursor-pointer bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
-                Upload Resume
+                Upload Int-Exp
                 <input
                   type="file"
                   accept=".pdf,.doc,.docx"
@@ -96,7 +96,7 @@ function StudentProfile() {
                   rel="noopener noreferrer"
                   className="block mt-2 text-blue-600 hover:underline"
                 >
-                  View Uploaded Resume
+                  View Uploaded Int-Exp
                 </a>
               )}
             </>
@@ -113,7 +113,7 @@ function StudentProfile() {
                   rel="noopener noreferrer"
                   className="block mt-2 text-blue-600 hover:underline"
                 >
-                  Download Resume
+                  Download Int-Exp
                 </a>
               )}
             </>
@@ -121,13 +121,13 @@ function StudentProfile() {
 
           {resumeStatus === "rejected" && (
             <>
-              <span className="inline-block bg-red-200 text-red-800 px-3 py-1 rounded-full text-sm mb-2">Resume Rejected</span>
+              <span className="inline-block bg-red-200 text-red-800 px-3 py-1 rounded-full text-sm mb-2">Int-Exp Rejected</span>
               {user.resumeRejectedReason && (
                 <p className="text-red-700 text-sm mb-2">
                   <strong>Reason:</strong> {user.resumeRejectedReason}
                 </p>
               )}
-              <p className="text-gray-600 text-sm mb-2">Please upload a corrected resume.</p>
+              <p className="text-gray-600 text-sm mb-2">Please upload a corrected Int-Exp.</p>
               <input
                 type="file"
                 accept=".pdf,.doc,.docx"
