@@ -16,6 +16,7 @@ function AlumniProfile() {
     }
     setUser(storedUser);
     setResumeStatus(storedUser.resumeStatus || "not_uploaded");
+    fetchUserEvents(storedUser._id); // ✅ Fetch events
   }, [navigate]);
   const fetchUserEvents = async (userId) => {
     try {
