@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 function AlumniProfile() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [resumeStatus, setResumeStatus] = useState("not_uploaded");
-
+  const [events, setEvents] = useState([]);
   // Load alumni from localStorage
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -17,6 +17,37 @@ function AlumniProfile() {
     setUser(storedUser);
     setResumeStatus(storedUser.resumeStatus || "not_uploaded");
   }, [navigate]);
+  const fetchUserEvents = async (userId) => {
+    try {
+      const res = await axios.get("https://smrtalumnicon.onrender.com/api/events");
+
+      // Filter events for current user
+      const filteredEvents = res.data.filter(
+        (event) =>
+          event.postedBy?._id?.toString() === userId.toString()
+      );
+
+      setEvents(filteredEvents);
+    } catch (err) {
+      console.error("Error fetching events", err);
+    }
+  };
+
+  // 🗑 Delete event
+  const deleteEvent = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this event?")) return;
+
+    try {
+      await axios.delete(`https://smrtalumnicon.onrender.com/api/events/${id}`);
+      alert("Event deleted successfully");
+
+      // refresh list
+      setEvents((prev) => prev.filter((event) => event._id !== id));
+    } catch (err) {
+      console.error("Delete error:", err);
+      alert("Failed to delete event");
+    }
+  };
 
   // Upload / Re-upload Interview Experience
   const handleResumeUpload = async (e) => {
@@ -173,6 +204,69 @@ function AlumniProfile() {
           >
             Back to Home
           </button>
+        </div>
+
+        <div className="bg-[#DAFFDA]/50 rounded-xl mt-4 p-6 h-[80vh]">
+          <h3 className="text-xl text-center font-k2d mb-4 text-green-950">
+            Events Posted by You
+          </h3>
+
+          <div className="overflow-y-auto h-[70vh] pr-2">
+            {events.length === 0 ? (
+              <p className="text-gray-700">No events available</p>
+            ) : (
+              <div className="flex flex-col gap-6">
+                {events.map((event, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col md:flex-row bg-white text-gray-900 rounded-xl shadow-lg overflow-hidden"
+                  >
+                    <div className="flex-1 p-6 md:w-1/2 ">
+
+                      <p className="mt-4 mb-4 text-sm text-black p-3 border-2 bg-blue-200 border-blue-300 rounded-2xl">
+                        Posted by:{" "}
+                        <span className="font-medium text-black  ">
+                          {event.postedBy?.firstName} {event.postedBy?.lastName}
+                        </span>
+                      </p>
+
+                      <h4 className="text-4xl font-bold mb-1 text-red-400">
+                        {event.title}
+                      </h4>
+
+                      <p className="text-sm mt-4 text-gray-500 mb-2">
+                        📅 {event.date}
+                      </p>
+                      <p className="mt-4 text-neutral-950 h-auto rounded-2xl bg-blue-200 border-2 p-3 border-blue-400">
+                        Description:{" "}
+                        <span className="font-medium text-black p-3 ">
+                          {event.description}
+                        </span>
+                        
+                      </p>
+
+                      <button
+                  onClick={() => deleteEvent(event._id)}
+                  className="w-full py-2 rounded-lg bg-red-500 text-white font-semibold
+                             hover:bg-red-600 transition-colors duration-300 mt-4"
+                >
+                  🗑 Delete Event
+                </button>
+                    </div>
+                    <div className="flex md:w-1/2 justify-center items-center overflow-hidden">
+                    {event.imageUrl && (
+                      <img
+                        src={event.imageUrl}
+                        alt={event.title}
+                        className=" w-auto h-auto object-cover "
+                      />
+                    )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
