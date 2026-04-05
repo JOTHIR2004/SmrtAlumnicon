@@ -329,14 +329,14 @@ function StudentHome() {
             </a>
 
             <div className="space-y-2 text-sm">
-              <p><strong>Phone:</strong> {selectedAlumni.phone || "N/A"}</p>
+              {/* <p><strong>Phone:</strong> {selectedAlumni.phone || "N/A"}</p> */}
               <p><strong>Skills:</strong> {selectedAlumni.skills || "N/A"}</p>
               <p>
                 <strong>Area of Interest:</strong>{" "}
                 {selectedAlumni.areaOfInterest || "N/A"}
               </p>
-              <p><strong>Batch:</strong> {selectedAlumni.batch || "N/A"}</p>
-              <p><strong>About:</strong> {selectedAlumni.about || "N/A"}</p>
+              {/* <p><strong>Batch:</strong> {selectedAlumni.batch || "N/A"}</p>
+              <p><strong>About:</strong> {selectedAlumni.about || "N/A"}</p> */}
             </div>
           </div>
         </div>
